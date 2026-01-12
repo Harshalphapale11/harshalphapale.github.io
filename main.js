@@ -1,9 +1,12 @@
-gsap.from(".hero-text",{
-opacity:0,
-y:100,
-duration:2
-})
+gsap.from(".hero-text",{opacity:0,y:100,duration:2});
 
-document.querySelector(".toggle").onclick=()=>{
-document.body.classList.toggle("light");
-}
+gsap.utils.toArray("section").forEach(section=>{
+  gsap.from(section,{
+    opacity:0,
+    y:100,
+    scrollTrigger:{
+      trigger:section,
+      start:"top 80%"
+    }
+  });
+});
